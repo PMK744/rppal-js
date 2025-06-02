@@ -24,6 +24,10 @@
   "engines": {
     "node": ">= 10"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PMK744/rppal-js.git"
+  },
   "scripts": {
     "artifacts": "napi artifacts",
     "build": "napi build --platform --release",
