@@ -77,4 +77,26 @@ impl OutputPin {
     // Toggle the output pin state
     self.0.toggle();
   }
+
+  /**
+   * Sets the GPIO output pin to PWM mode with the specified frequency and duty cycle.
+   * @param frequency The frequency of the PWM signal in Hz.
+   * @param duty_cycle The duty cycle of the PWM signal as a fraction (0.0 to 1.0).
+  */
+  #[napi]
+  pub fn set_pwm_frequency(&mut self, frequency: f64, duty_cycle: f64) {
+    // Set the PWM frequency for the output pin
+    self.0.set_pwm_frequency(frequency, duty_cycle)
+      .expect("Failed to set PWM frequency");
+  }
+
+  /**
+   * Clears the PWM settings for the GPIO output pin.
+  */
+  #[napi]
+  pub fn clear_pwm(&mut self) {
+    // Clear the PWM settings for the output pin
+    self.0.clear_pwm()
+      .expect("Failed to clear PWM settings");
+  }
 }

@@ -25,7 +25,7 @@ export declare class Pin {
   */
   get pin(): number
   /**
-  * Converts the GPIO pin to an `InputPin` and sets the disables the pull-up/pull-down resistors.
+  * Converts the GPIO pin to an `InputPin` and disables the pull-up/pull-down resistors.
   */
   intoInput(): InputPin
   /**
@@ -78,6 +78,16 @@ export declare class OutputPin {
   * Toggles the GPIO output pin state.
   */
   toggle(): void
+  /**
+  * Sets the GPIO output pin to PWM mode with the specified frequency and duty cycle.
+  * @param frequency The frequency of the PWM signal in Hz.
+  * @param duty_cycle The duty cycle of the PWM signal as a fraction (0.0 to 1.0).
+  */
+  setPwmFrequency(frequency: number, dutyCycle: number): void
+  /**
+  * Clears the PWM settings for the GPIO output pin.
+  */
+  clearPwm(): void
 }
 export declare class InputPin {
   /**
